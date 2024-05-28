@@ -1,0 +1,27 @@
+[project]
+name = "pytest-send-email"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "自动发送", email = "dcy4725@163.com"},
+]
+dependencies = [
+    "pytest>=8.2.1",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
+
+[project.entry-points.pytest11]
+result_log="pytest_send_email.plugin"
+
+[tool.pdm.build]
+package-dir="src"
