@@ -1,13 +1,18 @@
 import requests
-url=""
-content='''
-测试结果：<br>
-测试开始时间：<br>
-测试结束时间：<br>
-测试执行时间：<br>
-用例数：<br>
-通过：<font color='gree'>1</font><br>
-失败：<font color='red'>1</font><br>
-通过率：'''
-requests.post(url,
-              json={content:content},)
+
+url = "https://oapi.dingtalk.com/robot/send?access_token=05493a7395f447d8e9a477dfc07aa85c73665145bdfbf14f51a8ab4ffd64b2ef"
+content = """
+自动化测试结果 \n>
+测试开始时间：\n>
+测试执行时间：\n>
+用例数：\n>
+通过：<font color='green'>1</font>\n>
+失败：<font color='red'>1</font>\n>
+通过率："""
+requests.post(
+    url,
+    json={
+        "msgtype": "markdown",
+        "markdown": {"title": "自动化测试结果", "text": content},
+    },
+)
