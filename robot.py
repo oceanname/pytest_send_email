@@ -6,8 +6,8 @@ content = """
 测试开始时间：\n>
 测试执行时间：\n>
 用例数：\n>
-通过：<font color='green'>1</font>\n>
-失败：<font color='red'>1</font>\n>
+通过：**<font color=#00FF00>1</font>**\n>
+失败：**<font color=#FF0000>1</font>**\n>
 通过率："""
 requests.post(
     url,
