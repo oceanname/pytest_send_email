@@ -7,15 +7,11 @@ data = {
     "passed": 0,
     "failed": 0,
 }
+
+
 def pytest_addoption(parser):
-    parser.addini(
-        "send_when",
-        help="在如何时候都发送"
-    )
-    parser.addini(
-        "send_url",
-        help="发送地址"
-    )
+    parser.addini("send_when", help="在如何时候都发送")
+    parser.addini("send_url", help="发送地址")
 
 
 def pytest_runtest_logreport(report: pytest.TestReport):
@@ -33,8 +29,8 @@ def pytest_configure(config: pytest.Config):
     """用例开始前执行"""
     data["start_time"] = datetime.now()
     print(f"{datetime.now()} pytest开始执行")
-    data["send_when"]=config.getini("send_when")
-    data["send_url"]=config.getini("send_url")
+    data["send_when"] = config.getini("send_when")
+    data["send_url"] = config.getini("send_url")
 
 
 def pytest_unconfigure():
@@ -46,10 +42,12 @@ def pytest_unconfigure():
     data["pass_radio"] = f"{data['pass_radio']:.2f}%"
     # assert data['total']==2
     send_resuld()
+
+
 def send_resuld():
     if not data["send_url"]:
         return
-    if data["send_when"]!="every":
+    if data["send_when"] != "every":
         return
     url = data["send_url"]
     content = f"""
@@ -70,4 +68,4 @@ def send_resuld():
         )
     except Exception:
         pass
-    data['send_done']=1#发送成功
+    data["send_done"] = 1  # 发送成功
