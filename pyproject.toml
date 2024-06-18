@@ -1,6 +1,6 @@
 [project]
 name = "pytest-send-email"
-version = "0.1.0"
+version = "0.1.1"
 description = "Default template for PDM package"
 authors = [
     {name = "自动发送", email = "dcy4725@163.com"},
