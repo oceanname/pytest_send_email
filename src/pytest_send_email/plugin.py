@@ -55,8 +55,8 @@ def send_resuld():
     测试开始时间：{data["start_time"]}\n>
     测试执行时间：{data["run_time"]}\n>
     用例数：{data['total']}\n>
-    通过：<font color=#00FF00>**{data['passed']}**</font>\n>
-    失败：**<font color=#FF0000>{data['failed']}</font>**\n>
+    通过：{data['passed']}\n>
+    失败：{data['failed']}\n>
     通过率：{data['pass_radio']}"""
     try:
         requests.post(
